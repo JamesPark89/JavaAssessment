@@ -1,0 +1,17 @@
+form {
+  display: flex;
+}
+
+nav {
+  padding: 20px;
+}
+#contents {
+  display: flex;
+  justify-content: center;
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  margin: 50px;
+}

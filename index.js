@@ -4,35 +4,44 @@ const label = document.getElementById('label');
 const ingredients = document.getElementById('ingredients');
 const searchText = document.getElementById('searchText');
 const searchButton = document.getElementById('searchButton');
+const result = document.getElementById('result');
 
 searchButton.addEventListener("click", getData);
 //fetching API data function
 async function getData(){
+  removeAllChildNodes(result);
   const search = searchText.value;
   var data = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${search}&app_id=2b0ebcea&app_key=c49b82c2800324bd3157d984848f9aa1`)
   data = await data.json()
-  var dishName = data.hits[0].recipe.label
-  var dishImg = data.hits[0].recipe.image
-  var dishIngredients = data.hits[0].recipe.ingredientLines;
+  for(i=0;i < data.hits.length;i++){
+  var dishName = data.hits[i].recipe.label
+  var dishImg = data.hits[i].recipe.image
+  var dishIngredients = data.hits[i].recipe.ingredientLines;
   console.log(data.hits);
 
-  const contents = document.getElementById('contents');
 
-  var title = document.createElement('DIV');
+  var newDiv = document.createElement('DIV');
+  newDiv.className = 'card';
+
+  var img = new Image();
+  img.src = dishImg;
+  img.className = 'card-img-top';
+  newDiv.appendChild(img);
+
+  var newH5 = document.createElement('H5');
   var x = document.createTextNode(dishName);
-  title.appendChild(x); 
-  contents.appendChild(title);
+  newH5.appendChild(x); 
+  newDiv.appendChild(newH5);
   
   var divIng = document.createElement('DIV');
   var y = document.createTextNode(dishIngredients);
   divIng.appendChild(y); 
-  contents.appendChild(divIng);
+  newDiv.appendChild(divIng);
   
-  var img = new Image();
-  img.src = dishImg;
-  contents.appendChild(img);
+  result.appendChild(newDiv);
 
-}
+
+}}
 
 // Execute a function when the user releases a Enter key on the keyboard
 searchText.addEventListener("keydown", function(event) {
@@ -44,3 +53,11 @@ searchText.addEventListener("keydown", function(event) {
     searchButton.click();
   }
 });
+
+//reset the searching result
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
+
