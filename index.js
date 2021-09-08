@@ -20,9 +20,9 @@ async function getData(){
   contents.appendChild(newResult);
 
   var newText = document.createElement('DIV');
-  var x = document.createTextNode(`This the result of searching by ${search}`);
+  var x = document.createTextNode(`This is the result of searching by ${search}`);
   newText.appendChild(x);
-  newText.className = 'newSearchText';
+  newText.className = 'newSearchText fs-3 fw-bold';
   newResult.appendChild(newText);
   
   //fetching the data
@@ -39,7 +39,7 @@ async function getData(){
 
 
   var newDiv = document.createElement('DIV');
-  newDiv.className = 'card';
+  newDiv.className = 'card border border-5 border-dark';
 
   var img = new Image();
   img.src = dishImg;

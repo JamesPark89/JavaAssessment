@@ -7,13 +7,14 @@ nav {
 }
 #contents {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 .card {
   display: flex;
   flex-direction: row;
   width: 600px;
-  margin: 50px;
+  margin-bottom: 20px;
 }
 .section {
   margin: 20px;
@@ -33,4 +34,45 @@ nav {
 }
 .subtitle {
   color: white;
+}
+.background {
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 1920px;
+  z-index: -999999;
+  position: fixed;
+  display: block;
+}
+.background img {
+  width: 100%;
+}
+
+#mainText {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  padding: 20px;
+  margin-top: 200px;
+}
+
+#contactForm {
+  margin: 50px;
+}
+#contactDetail {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  padding: 20px;
+  margin-top: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    width: 340px;
+  }
 }
