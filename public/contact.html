@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav
+      class="
+        navbar
+        sticky-top
+        navbar-expand-lg navbar-dark
+        bg-success bg-opacity-75
+      "
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">FindRecipe</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="favourite.html">Favorite</a>
+            <a class="nav-link active" aria-current="page" href="contact.html"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="subtitle">Find recipes by searching</div>
+      <form>
+        <input type="text" id="searchText" />
+        <input type="button" id="searchButton" value="search" />
+      </form>
+    </nav>
+
+    <!-- contents -->
+    <div id="contents">
+      <div id="result"></div>
+      <form id="contactForm" class="row g-3">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" />
+        </div>
+        <div class="col-md-6">
+          <label for="inputName4" class="form-label">Name</label>
+          <input type="text" class="form-control" id="inputName4" />
+        </div>
+        <div class="col-12">
+          <label for="inputMessage" class="form-label">Message</label>
+          <textarea
+            class="form-control"
+            id="inputMessage"
+            placeholder="Type your message"
+            rows="3"
+          >
+          </textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div
+          id="contactDetail"
+          class="fs-5 border border-dark border-5 rounded bg-light bg-gradient"
+        >
+          E-mail : mel.jamespark@gmail.com <br />Phone : 0411 133 848
+        </div>
+      </form>
+    </div>
+
+    <!-- background-->
+    <div class="background">
+      <img src="photo/main.jpg" alt="backgroundimg" />
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="favorite.js"></script>
+    <script src="index.js"></script>
+    <script src="search.js"></script>
+  </body>
+</html>
