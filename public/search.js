@@ -6,7 +6,7 @@ const searchText = document.getElementById('searchText');
 const searchButton = document.getElementById('searchButton');
 const result = document.getElementById('result');
 const contents = document.getElementById('contents');
-
+var favsaved = false;
 
 searchButton.addEventListener("click", getData);
 
@@ -97,7 +97,20 @@ function createFavBtn(newDiv){
 // favBtn.addEventListener('click',()=>{
 //   console.log(favBtn.parentElement);
 // });
-function saveFav(e){
-  const favBtn = e.parentElement;
-  console.log(favBtn);
+async function saveFav(e){
+  favsaved = true;
+  var childNodes = e.parentElement.childNodes;
+  var imgURL = childNodes[0].src;
+  var dishName = childNodes[1].childNodes[0].innerText;
+  var dishIng = childNodes[1].childNodes[1].innerText;
+  var data = {imgURL, dishName, dishIng}
+  console.log(data);
+  const options = {
+    method: 'POST', 
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(data)
+  }
+  const response = await fetch('http://localhost:3000/api', options )
 }
+
+//favorite function
