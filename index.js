@@ -7,8 +7,10 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 const database = new Database('database.db');
-database.loadDatabase();
 
+database.loadDatabase();
+database.remove({}, { multi: true }, function (err, numRemoved) {
+});
 app.post('/api',(req,res)=>{
   const data = req.body
   database.insert(data)
@@ -22,5 +24,6 @@ app.get('/api',(req,res)=>{
     res.json(data)
   })
 })
+
 
 app.listen(3000, ()=> console.log('listening on port 3000'))
